@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { Button, Select,Row,Col,Option,Input,Breadcrumb,BreadcrumbItem,Card,Steps,Step,Rate,Tabs,TabPane,Pagination } from 'element-ui';
+import { Button, Select,Row,Col,Option,Input,Breadcrumb,BreadcrumbItem,Card,Steps,Step,Rate,Tabs,TabPane,Pagination,Table,TableColumn,Dialog,Form,FormItem,Dropdown,DropdownMenu,DropdownItem } from 'element-ui';
 import './mork/index'
 import 'element-ui/lib/theme-chalk/index.css';
 import Vuex from 'vuex'
@@ -27,6 +27,14 @@ Vue.use(Rate);
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Pagination);
+Vue.use(Table);
+Vue.use(TableColumn);
+Vue.use(Dialog);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use( Dropdown);
+Vue.use( DropdownMenu);
+Vue.use( DropdownItem);
 // //懒加载
 Vue.use(lazyLoad,{
   loading:require('../static/img/timg.jpg')

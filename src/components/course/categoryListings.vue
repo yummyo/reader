@@ -10,9 +10,9 @@
             <!-- 预览图 -->
             <div class="preview">
               <div class="menu">
-                  <span class="my" @click="toCourseware(1)">我的课程</span>
-                  <span class="all" @click="toCourseware(2)">全部课程</span>
-                </div>
+                <span class="my" @click="toCourseware(1)">我的课程</span>
+                <span class="all" @click="toCourseware(2)">全部课程</span>
+              </div>
               <img v-lazy="item.img" alt="">
             </div>
             <!-- 标题 -->
@@ -52,13 +52,24 @@ export default {
       })
     },
     toCourseware:function(type,id){
-      this.$router.push({
-        'path':"/index/courseList",
-        "query":{
-          'id':id,
-          'type': type == 1 ? 'my' : 'all'
-        }
-      })
+      if(type == 1){
+        this.$router.push({
+          'path':"/index/myCourse",
+          "query":{
+            'id':id,
+            'type': 'all'
+          }
+        })
+      }else{
+        this.$router.push({
+          'path':"/index/courseList",
+          "query":{
+            'id':id,
+            'type': 'all'
+          }
+        })
+      }
+      
     }
   },
   components:{

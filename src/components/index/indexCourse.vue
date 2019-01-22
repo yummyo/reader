@@ -31,7 +31,9 @@
              <student></student>
           </el-tab-pane>
           <el-tab-pane v-if="userData.type == 'teacher'" label="题库" name="question">题库</el-tab-pane>
-          <el-tab-pane v-if="userData.type == 'teacher'" label="问答" name="issue">问答</el-tab-pane>
+          <el-tab-pane v-if="userData.type == 'teacher'" label="问答" name="issue">
+            <issue></issue>
+          </el-tab-pane>
         </el-tabs>
       </el-col>
     </el-row>
@@ -41,8 +43,9 @@
 <script>
 import {mapGetters} from 'vuex'
 import Nav from '@/common/view/Nav'
-import classroom from './tabModule/classroom'
+import classroom from '../classRoom'
 import student from './tabModule/student'
+import issue from './tabModule/issue'
 
 export default {
   name: 'indexCourse',
@@ -65,7 +68,7 @@ export default {
     }
   },
   components:{
-    Nav,classroom,student
+    Nav,classroom,student,issue
   }
 }
 </script>

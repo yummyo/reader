@@ -28,6 +28,36 @@ const courseDetail  = (resolve) => {
     resolve(module)
   })
 }
+// 我的课程
+const myCourse  = (resolve) => {
+  import('@/components/course/myCourse').then((module) => {
+    resolve(module)
+  })
+}
+// 班级详情
+const classRoomDetail  = (resolve) => {
+  import('@/components/classRoom/classRoomDetail').then((module) => {
+    resolve(module)
+  })
+}
+// 用户中心
+const userCenter  = (resolve) => {
+  import('@/components/userInfo/userCenter').then((module) => {
+    resolve(module)
+  })
+}
+// 我的课程
+const myClass  = (resolve) => {
+  import('@/components/userInfo/myClass').then((module) => {
+    resolve(module)
+  })
+}
+// 我的学习
+const myStudy  = (resolve) => {
+  import('@/components/userInfo/myStudy').then((module) => {
+    resolve(module)
+  })
+}
 
 const router =  new Router({
   routes: [
@@ -49,12 +79,39 @@ const router =  new Router({
           component: categoryListings 
         },
         {
+          // 课程列表
           path: '/index/courseList',
           component: courseList 
         },
         {
+          // 课程详情
           path: '/index/courseDetail',
           component: courseDetail 
+        },
+        {
+          // 我的课程
+          path: '/index/myCourse',
+          component: myCourse
+        },
+        {
+          // 班级详情
+          path: '/index/classRoomDetail',
+          component: classRoomDetail
+        },
+        {
+          // 用户中心
+          path: '/index/userCenter',
+          component: userCenter
+        },
+        {
+          // 我的课程
+          path: '/index/myClass',
+          component: myClass
+        },
+        {
+          // 我的学习
+          path: '/index/myStudy',
+          component: myStudy
         },
       ]
     },

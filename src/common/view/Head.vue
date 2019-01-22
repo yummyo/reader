@@ -18,18 +18,27 @@
             </el-col>
             <el-col :span='12'>
               <!-- logo -->
-              <div class="logo">
+              <div class="headitem logo">
                 <img src="@/assets/logo.png" alt="">
                 <a href="">微演示</a>
               </div>
             </el-col>
             <el-col :span='6'>
               <!-- user -->
-              <div :v-if="isLogin">
+              <div class="headitem userInfo" v-if="!isLogin">
                 <!-- 已登录 -->
-                
+                <el-dropdown @command="handleCommand">
+                  <span class="el-dropdown-link">
+                    测试账号<i class="el-icon-arrow-down el-icon--right"></i>
+                  </span>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item command="myClass">我的班级</el-dropdown-item>
+                    <el-dropdown-item command="userCenter">个人资料</el-dropdown-item>
+                    <el-dropdown-item command="myStudy">我的学习</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </div>
-              <div :v-else='isLogin'>
+              <div class="headitem" v-else>
               <!-- 未登录 -->
                 <el-button type="text">捐款给</el-button>
                 <el-button type="text">登录</el-button>
@@ -58,10 +67,35 @@
         isLogin : false,
       }
     },
+    methods:{
+      handleCommand(command){
+        console.log(command)
+        // switch(command){
+        //   case 'myClass':
+        //   // 我的班级
+        //   this.$route.push({
+        //     'path':''
+        //   })
+        //   break;
+        //   case 'userCenter':
+        //   // 个人资料
+        //   break;
+        //   case 'myStudy':
+        //   // 我的学习
+        //   break;
+        // }
+        console.log(this.$router)
+        this.$router.push({
+          'path':'/index/'+command
+        })
+      }
+    }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus"> 
+  .el-dropdown-link
+    color #fff
 // 头部
   .head
     background #066EE2
@@ -69,13 +103,19 @@
     &:hover
       background #ffffff
       color #066EE2
-      a
+      a,.el-dropdown-link
         color #066EE2
+        cursor pointer
     .container
       padding .5rem
+    .headitem
+      height $head-height
+      line-height $head-height
+      text-align center
+    // 右侧用户信息
+    .userInfo
+      
     .logo
-      height 40px
-      line-height 40px
       img
         width 1rem
         height 1rem
